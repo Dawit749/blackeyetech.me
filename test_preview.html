@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>blackeyeTech — Complete Color & Dark SVG Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #D9DDD4;
+      --ink-obsidian: #160C07;
+      --cta-terracotta: #C85A32;
+      --particle-blue: #2563EB;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-canvas);
+      font-family: 'Inter', -apple-system, sans-serif;
+      padding: 40px;
+      color: var(--ink-obsidian);
+    }
+    header {
+      margin-bottom: 36px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(108, 81, 48, 0.25);
+    }
+    h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }
+    p.sub { font-size: 15px; color: #555; }
+    
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6C5130;
+      font-weight: 700;
+      margin: 32px 0 16px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(108, 81, 48, 0.18);
+      border-radius: 10px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(22, 12, 7, 0.08);
+      background: rgba(255, 255, 255, 0.85);
+    }
+    .card.dark-card {
+      background: #160C07;
+      border-color: #3A2818;
+      color: #D9DDD4;
+    }
+    .card.dark-card .card-info span {
+      color: #A8A29E;
+    }
+
+    .card-preview {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 52px;
+    }
+    .card-preview img.logo {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+    .card-preview img.icon {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .card-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(108, 81, 48, 0.12);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+    .card-info strong {
+      color: var(--ink-obsidian);
+      font-weight: 600;
+    }
+    .card.dark-card .card-info strong {
+      color: #FFF;
+    }
+    .card-info code {
+      background: rgba(0, 0, 0, 0.06);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #817B69;
+    }
+    .card.dark-card .card-info code {
+      background: rgba(255, 255, 255, 0.1);
+      color: #D9DDD4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>blackeyeTech SVG Suite (Color & Dark)</h1>
+    <p class="sub">All vector assets generated from your source image, saved in <code>svg2/</code></p>
+  </header>
+
+  <div class="section-title">1. Vibrant Color Logo Variants</div>
+  <div class="grid">
+    <!-- Terracotta Accent -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-terracotta-eye.svg" class="logo" alt="Terracotta Accent">
+        <img src="svg2/color-terracotta-eye-icon.svg" class="icon" alt="Terracotta Icon">
+      </div>
+      <div class="card-info">
+        <strong>Brand Terracotta Orange Eye</strong>
+        <code>color-terracotta-eye.svg</code>
+      </div>
+    </div>
+
+    <!-- Royal Electric Blue -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-blue-eye.svg" class="logo" alt="Electric Blue">
+        <img src="svg2/color-blue-eye-icon.svg" class="icon" alt="Electric Blue Icon">
+      </div>
+      <div class="card-info">
+        <strong>Royal Particle Blue Eye</strong>
+        <code>color-blue-eye.svg</code>
+      </div>
+    </div>
+
+    <!-- Sunset Flame Gradient -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-gradient-sunset.svg" class="logo" alt="Sunset Gradient">
+        <img src="svg2/color-gradient-sunset-icon.svg" class="icon" alt="Sunset Icon">
+      </div>
+      <div class="card-info">
+        <strong>Sunset Flame Gradient</strong>
+        <code>color-gradient-sunset.svg</code>
+      </div>
+    </div>
+
+    <!-- Cyber Hologram Gradient -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-gradient-cyber.svg" class="logo" alt="Cyber Gradient">
+        <img src="svg2/color-gradient-cyber-icon.svg" class="icon" alt="Cyber Icon">
+      </div>
+      <div class="card-info">
+        <strong>Cyber Teal-to-Violet</strong>
+        <code>color-gradient-cyber.svg</code>
+      </div>
+    </div>
+
+    <!-- Mint Emerald Teal -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-emerald-teal.svg" class="logo" alt="Emerald Teal">
+        <img src="svg2/color-emerald-teal-icon.svg" class="icon" alt="Emerald Teal Icon">
+      </div>
+      <div class="card-info">
+        <strong>Emerald Tech Teal</strong>
+        <code>color-emerald-teal.svg</code>
+      </div>
+    </div>
+
+    <!-- Multi-Color Segmented -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-multicolor.svg" class="logo" alt="Multi-Color">
+        <img src="svg2/color-multicolor-icon.svg" class="icon" alt="Multi-Color Icon">
+      </div>
+      <div class="card-info">
+        <strong>Architectural Multi-Color</strong>
+        <code>color-multicolor.svg</code>
+      </div>
+    </div>
+
+    <!-- Monochrome Terracotta -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-all-terracotta.svg" class="logo" alt="All Terracotta">
+        <img src="svg2/color-all-terracotta-icon.svg" class="icon" alt="All Terracotta Icon">
+      </div>
+      <div class="card-info">
+        <strong>Full Monochrome Terracotta</strong>
+        <code>color-all-terracotta.svg</code>
+      </div>
+    </div>
+
+    <!-- Monochrome Blue -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/color-all-blue.svg" class="logo" alt="All Blue">
+        <img src="svg2/color-all-blue-icon.svg" class="icon" alt="All Blue Icon">
+      </div>
+      <div class="card-info">
+        <strong>Full Monochrome Royal Blue</strong>
+        <code>color-all-blue.svg</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">2. Master Dark / Monochrome & Direct Traced Variants</div>
+  <div class="grid">
+    <!-- Geometric Master Dark -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/geometric-logo.svg" class="logo" alt="Geometric Logo">
+        <img src="svg2/geometric-icon.svg" class="icon" alt="Geometric Icon">
+      </div>
+      <div class="card-info">
+        <strong>Smooth Geometric Master</strong>
+        <code>geometric-logo.svg</code>
+      </div>
+    </div>
+
+    <!-- Direct Raw Traced -->
+    <div class="card">
+      <div class="card-preview">
+        <img src="svg2/scratch_test_traced.svg" class="logo" alt="Raw Traced">
+        <img src="svg2/traced-icon.svg" class="icon" alt="Traced Icon">
+      </div>
+      <div class="card-info">
+        <strong>Direct Pixel-Traced Exact</strong>
+        <code>scratch_test_traced.svg</code>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
