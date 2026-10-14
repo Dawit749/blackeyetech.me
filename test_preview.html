@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>blackeyeTech — Complete Color & Dark SVG Suite</title>
+  <title>blackeyeTech — Authentic Image-Extracted SVGs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -10,8 +10,7 @@
     :root {
       --bg-canvas: #D9DDD4;
       --ink-obsidian: #160C07;
-      --cta-terracotta: #C85A32;
-      --particle-blue: #2563EB;
+      --grid-line: rgba(108, 81, 48, 0.2);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -21,67 +20,54 @@
       color: var(--ink-obsidian);
     }
     header {
-      margin-bottom: 36px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(108, 81, 48, 0.25);
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--grid-line);
     }
-    h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }
-    p.sub { font-size: 15px; color: #555; }
+    h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 6px; }
+    p.sub { font-size: 14px; color: #555; }
     
     .section-title {
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #6C5130;
       font-weight: 700;
-      margin: 32px 0 16px 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 20px;
+      margin: 28px 0 14px 0;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.65);
-      border: 1px solid rgba(108, 81, 48, 0.18);
-      border-radius: 10px;
-      padding: 22px;
+      border: 1px solid var(--grid-line);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(22, 12, 7, 0.08);
-      background: rgba(255, 255, 255, 0.85);
-    }
-    .card.dark-card {
-      background: #160C07;
-      border-color: #3A2818;
-      color: #D9DDD4;
-    }
-    .card.dark-card .card-info span {
-      color: #A8A29E;
+      gap: 12px;
     }
 
     .card-preview {
       display: flex;
       align-items: center;
       gap: 16px;
-      min-height: 52px;
+      overflow-x: auto;
+    }
+    .card-preview img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
     .card-preview img.logo {
       height: 42px;
-      width: auto;
-      display: block;
     }
     .card-preview img.icon {
       height: 40px;
-      width: auto;
-      display: block;
+    }
+    .card-preview img.full {
+      max-height: 180px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,0.1);
     }
 
     .card-info {
@@ -93,155 +79,64 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
     }
-    .card-info strong {
-      color: var(--ink-obsidian);
-      font-weight: 600;
-    }
-    .card.dark-card .card-info strong {
-      color: #FFF;
-    }
     .card-info code {
       background: rgba(0, 0, 0, 0.06);
       padding: 3px 8px;
       border-radius: 4px;
       color: #817B69;
     }
-    .card.dark-card .card-info code {
-      background: rgba(255, 255, 255, 0.1);
-      color: #D9DDD4;
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>blackeyeTech SVG Suite (Color & Dark)</h1>
-    <p class="sub">All vector assets generated from your source image, saved in <code>svg2/</code></p>
+    <h1>Authentic Image-Extracted SVGs (in <code>svg2/</code>)</h1>
+    <p class="sub">Direct vector extractions from your source image without any artificial color modifications.</p>
   </header>
 
-  <div class="section-title">1. Vibrant Color Logo Variants</div>
-  <div class="grid">
-    <!-- Terracotta Accent -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-terracotta-eye.svg" class="logo" alt="Terracotta Accent">
-        <img src="svg2/color-terracotta-eye-icon.svg" class="icon" alt="Terracotta Icon">
-      </div>
-      <div class="card-info">
-        <strong>Brand Terracotta Orange Eye</strong>
-        <code>color-terracotta-eye.svg</code>
-      </div>
+  <div class="section-title">1. Full Original Image Vector</div>
+  <div class="card">
+    <div class="card-preview">
+      <img src="svg2/full-image.svg" class="full" alt="Full Vector Image">
     </div>
-
-    <!-- Royal Electric Blue -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-blue-eye.svg" class="logo" alt="Electric Blue">
-        <img src="svg2/color-blue-eye-icon.svg" class="icon" alt="Electric Blue Icon">
-      </div>
-      <div class="card-info">
-        <strong>Royal Particle Blue Eye</strong>
-        <code>color-blue-eye.svg</code>
-      </div>
-    </div>
-
-    <!-- Sunset Flame Gradient -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-gradient-sunset.svg" class="logo" alt="Sunset Gradient">
-        <img src="svg2/color-gradient-sunset-icon.svg" class="icon" alt="Sunset Icon">
-      </div>
-      <div class="card-info">
-        <strong>Sunset Flame Gradient</strong>
-        <code>color-gradient-sunset.svg</code>
-      </div>
-    </div>
-
-    <!-- Cyber Hologram Gradient -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-gradient-cyber.svg" class="logo" alt="Cyber Gradient">
-        <img src="svg2/color-gradient-cyber-icon.svg" class="icon" alt="Cyber Icon">
-      </div>
-      <div class="card-info">
-        <strong>Cyber Teal-to-Violet</strong>
-        <code>color-gradient-cyber.svg</code>
-      </div>
-    </div>
-
-    <!-- Mint Emerald Teal -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-emerald-teal.svg" class="logo" alt="Emerald Teal">
-        <img src="svg2/color-emerald-teal-icon.svg" class="icon" alt="Emerald Teal Icon">
-      </div>
-      <div class="card-info">
-        <strong>Emerald Tech Teal</strong>
-        <code>color-emerald-teal.svg</code>
-      </div>
-    </div>
-
-    <!-- Multi-Color Segmented -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-multicolor.svg" class="logo" alt="Multi-Color">
-        <img src="svg2/color-multicolor-icon.svg" class="icon" alt="Multi-Color Icon">
-      </div>
-      <div class="card-info">
-        <strong>Architectural Multi-Color</strong>
-        <code>color-multicolor.svg</code>
-      </div>
-    </div>
-
-    <!-- Monochrome Terracotta -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-all-terracotta.svg" class="logo" alt="All Terracotta">
-        <img src="svg2/color-all-terracotta-icon.svg" class="icon" alt="All Terracotta Icon">
-      </div>
-      <div class="card-info">
-        <strong>Full Monochrome Terracotta</strong>
-        <code>color-all-terracotta.svg</code>
-      </div>
-    </div>
-
-    <!-- Monochrome Blue -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/color-all-blue.svg" class="logo" alt="All Blue">
-        <img src="svg2/color-all-blue-icon.svg" class="icon" alt="All Blue Icon">
-      </div>
-      <div class="card-info">
-        <strong>Full Monochrome Royal Blue</strong>
-        <code>color-all-blue.svg</code>
-      </div>
+    <div class="card-info">
+      <strong>Complete Original Image Vectorized (Canvas + Window Frame + Controls + Logo)</strong>
+      <code>svg2/full-image.svg</code>
     </div>
   </div>
 
-  <div class="section-title">2. Master Dark / Monochrome & Direct Traced Variants</div>
-  <div class="grid">
-    <!-- Geometric Master Dark -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/geometric-logo.svg" class="logo" alt="Geometric Logo">
-        <img src="svg2/geometric-icon.svg" class="icon" alt="Geometric Icon">
-      </div>
-      <div class="card-info">
-        <strong>Smooth Geometric Master</strong>
-        <code>geometric-logo.svg</code>
-      </div>
+  <div class="section-title">2. Extracted Logo & Icon (Transparent Background)</div>
+  <div class="card">
+    <div class="card-preview">
+      <img src="svg2/extracted-logo.svg" class="logo" alt="Extracted Logo">
+      <img src="svg2/extracted-icon.svg" class="icon" alt="Extracted Icon">
     </div>
+    <div class="card-info">
+      <strong>Exact Logo & Icon Extracted Directly from Image</strong>
+      <code>svg2/extracted-logo.svg &bull; svg2/extracted-icon.svg</code>
+    </div>
+  </div>
 
-    <!-- Direct Raw Traced -->
-    <div class="card">
-      <div class="card-preview">
-        <img src="svg2/scratch_test_traced.svg" class="logo" alt="Raw Traced">
-        <img src="svg2/traced-icon.svg" class="icon" alt="Traced Icon">
-      </div>
-      <div class="card-info">
-        <strong>Direct Pixel-Traced Exact</strong>
-        <code>scratch_test_traced.svg</code>
-      </div>
+  <div class="section-title">3. Extracted Logo & Icon with Authentic Background</div>
+  <div class="card">
+    <div class="card-preview">
+      <img src="svg2/extracted-logo-with-bg.svg" style="height: 60px;" alt="Logo with BG">
+      <img src="svg2/extracted-icon-with-bg.svg" style="height: 60px;" alt="Icon with BG">
+    </div>
+    <div class="card-info">
+      <strong>Logo & Icon with Original Canvas Color (#D3DAD2)</strong>
+      <code>svg2/extracted-logo-with-bg.svg &bull; svg2/extracted-icon-with-bg.svg</code>
+    </div>
+  </div>
+
+  <div class="section-title">4. Browser Window Header Mockup with Logo</div>
+  <div class="card">
+    <div class="card-preview">
+      <img src="svg2/browser-window-header-logo.svg" style="max-height: 100px;" alt="Header Mockup">
+    </div>
+    <div class="card-info">
+      <strong>Browser Top Bar with 3 Dots and Logo Lockup</strong>
+      <code>svg2/browser-window-header-logo.svg</code>
     </div>
   </div>
 
