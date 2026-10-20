@@ -696,6 +696,7 @@
 
     let width = 0;
     let height = 0;
+    let isHovered = false;
     let mouse = { x: -9999, y: -9999 };
 
     const PARTICLE_COUNT = 1600;
@@ -709,27 +710,32 @@
       off.height = height;
       const octx = off.getContext('2d');
 
-      const s = (scaleRadius * 2) / 82;
+      const r = scaleRadius;
       octx.save();
-      // Optical center of icon in viewBox 0 0 82 93 is at (41, 52)
-      octx.translate(centerX - 41 * s, centerY - 52 * s);
-      octx.scale(s, s);
+      octx.translate(centerX, centerY);
+
+      // Draw thick 'be' monogram silhouette so particles distribute evenly inside its strokes
+      octx.strokeStyle = '#000';
       octx.fillStyle = '#000';
-      const logoPath = new Path2D(`
-        M 0,0
-        L 12.5,0
-        L 12.5,22.53
-        A 41 41 0 0 1 81.63,57.5
-        L 56.02,57.5
-        A 16 16 0 1 1 55.83,46
-        L 68.86,46
-        A 28.5 28.5 0 1 0 65.54,66.5
-        L 79.35,66.5
-        A 41 41 0 0 1 0,52
-        L 0,0
-        Z
-      `);
-      octx.fill(logoPath);
+      octx.lineWidth = r * 0.28;
+      octx.lineCap = 'butt';
+
+      // 1. Vertical stem of 'b' on left from y = -r*1.15 to y = 0
+      octx.fillRect(-r * 0.98, -r * 1.15, r * 0.28, r * 1.15);
+
+      // 2. Full outer ring with only a small 22-degree gap on lower-right between 0.12 rad and 0.48 rad
+      octx.beginPath();
+      octx.arc(0, 0, r * 0.84, 0.48, Math.PI * 2 + 0.12, false);
+      octx.stroke();
+
+      // 3. Inner solid center circle ("the eye of the e")
+      octx.beginPath();
+      octx.arc(0, 0, r * 0.32, 0, Math.PI * 2);
+      octx.fill();
+
+      // 4. Horizontal crossbar of 'e'
+      octx.fillRect(0, -r * 0.14, r * 0.98, r * 0.28);
+
       octx.restore();
 
       // Extract valid pixel coordinates
@@ -809,21 +815,35 @@
 
     window.addEventListener('resize', resize);
 
+    section.addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
+
+    section.addEventListener('mouseleave', () => {
+      isHovered = false;
+      mouse.x = -9999;
+      mouse.y = -9999;
+    });
+
     section.addEventListener('mousemove', (e) => {
+      isHovered = true;
       const rect = section.getBoundingClientRect();
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     });
 
-    section.addEventListener('mouseleave', () => {
-      mouse.x = -9999;
-      mouse.y = -9999;
+    section.addEventListener('touchstart', () => {
+      isHovered = true;
+    }, { passive: true });
+
+    section.addEventListener('click', () => {
+      isHovered = !isHovered;
     });
 
     function animate(time) {
       ctx.clearRect(0, 0, width, height);
 
-      const activePool = logoTargets;
+      const activePool = isHovered ? logoTargets : null;
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -845,8 +865,8 @@
           if (distSq < repelRadius * repelRadius) {
             const dist = Math.sqrt(distSq) || 1;
             const force = (repelRadius - dist) / repelRadius;
-            p.x += (dx / dist) * force * 10;
-            p.y += (dy / dist) * force * 10;
+            p.x += (dx / dist) * force * 12;
+            p.y += (dy / dist) * force * 12;
           }
 
           // Smooth spring physics toward the blue 'be' logo
