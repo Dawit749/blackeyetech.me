@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 93" aria-label="blackeyeTech">
-  <!-- blackeyeTech favicon: Master Geometric 'be' Monogram with Eye Core, black on white -->
-  <rect width="93" height="93" rx="20" fill="#FFFFFF"/>
-  <path transform="translate(9.6,4.65) scale(0.9)" d="
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 93" fill="none" aria-label="blackeyeTech Logo Mark">
+  <!-- blackeyeTech Master Geometric 'be' Monogram with Eye Core -->
+  <path d="
     M 0,0
     L 12.5,0
     L 12.5,22.53
@@ -13,5 +12,5 @@
     L 79.35,66.5
     A 41 41 0 0 1 0,52
     L 0,0
-    Z" fill="#000000"/>
+    Z" fill="currentColor"/>
 </svg>
