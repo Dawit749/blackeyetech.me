@@ -3,12 +3,14 @@
 The 'be' monogram path consists of lines and circular arcs only, so we flatten
 the arcs into polygon points (SVG spec endpoint->center parameterization),
 supersample 8x for antialiasing, then downscale with Pillow.
+Full-bleed white square (opaque) per apple-touch-icon convention; iOS masks
+the corners itself.
 """
 import math
 from PIL import Image, ImageDraw
 
-INK = (22, 12, 7, 255)        # --ink-obsidian #160C07
-CANVAS = (217, 221, 212, 255)  # --bg-canvas   #D9DDD4
+INK = (0, 0, 0, 255)           # black mark
+CANVAS = (255, 255, 255, 255)  # white background
 SS = 8                          # supersample factor
 SIZE = 180
 S = SIZE * SS
@@ -41,25 +43,26 @@ def arc_points(p1, p2, r, large, sweep, steps=96):
             for i in range(1, steps + 1)]
 
 # Path from svg/blackeyetech-icon.svg (the master geometric monogram),
-# shifted by +5.5 in x to center it in the 93x93 tile.
-pts = [(5.5, 0.0)]
-pts.append((18.0, 0.0))
-pts.append((18.0, 22.53))
-pts += arc_points(pts[-1], (81.63 + 5.5, 57.5), 41, 0, 1)
-pts.append((56.02 + 5.5, 57.5))
-pts += arc_points(pts[-1], (55.83 + 5.5, 46.0), 16, 1, 1)
-pts.append((68.86 + 5.5, 46.0))
-pts += arc_points(pts[-1], (65.54 + 5.5, 66.5), 28.5, 1, 0)
-pts.append((79.35 + 5.5, 66.5))
-pts += arc_points(pts[-1], (5.5, 52.0), 41, 0, 1)
-pts.append((5.5, 0.0))
+# scaled 0.9 and centered to match favicon.svg's translate(9.6,4.65) scale(0.9).
+SCALE_F, DX, DY = 0.9, 9.6, 4.65
+pts = [(0.0, 0.0)]
+pts.append((12.5, 0.0))
+pts.append((12.5, 22.53))
+pts += arc_points(pts[-1], (81.63, 57.5), 41, 0, 1)
+pts.append((56.02, 57.5))
+pts += arc_points(pts[-1], (55.83, 46.0), 16, 1, 1)
+pts.append((68.86, 46.0))
+pts += arc_points(pts[-1], (65.54, 66.5), 28.5, 1, 0)
+pts.append((79.35, 66.5))
+pts += arc_points(pts[-1], (0.0, 52.0), 41, 0, 1)
+pts.append((0.0, 0.0))
 
-px = [(x * scale, y * scale) for x, y in pts]
+px = [((x * SCALE_F + DX) * scale, (y * SCALE_F + DY) * scale) for x, y in pts]
 
 img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
 d = ImageDraw.Draw(img)
-d.rounded_rectangle([0, 0, S - 1, S - 1], radius=20 * scale, fill=INK)
-d.polygon(px, fill=CANVAS)
+d.rectangle([0, 0, S - 1, S - 1], fill=CANVAS)
+d.polygon(px, fill=INK)
 img = img.resize((SIZE, SIZE), Image.LANCZOS)
 img.save("apple-touch-icon.png")
 print("apple-touch-icon.png written:", img.size)
